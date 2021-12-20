@@ -14,9 +14,9 @@ export const Card = styled(Stack)`
   :hover,
   :focus,
   :active {
-    background-color: ${p => p.theme.colors.primary};
-    border-color: ${p => p.theme.colors.primary};
-    color: ${p => p.theme.colors.onPrimary};
+    background-color: ${p => p.theme.colors.darken};
+    border-color: ${p => p.theme.colors.darken};
+    color: ${p => p.theme.colors.onDarken};
   }
 `;
 

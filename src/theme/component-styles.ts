@@ -46,10 +46,14 @@ export const buttonVariantControl = css`
   font-size: 0.875em;
   padding: 0.625em 1em;
 
-  :active,
+  :hover,
   :focus {
-    background-color: ${p => p.theme.colors.darken};
+    background-color: rgba(0, 0, 0, 0.1);
     color: ${p => p.theme.colors.onDarken};
+  }
+
+  :active {
+    background-color: rgba(0, 0, 0, 0.3);
   }
 
   ${p => p.theme.media.up.sm} {

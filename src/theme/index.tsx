@@ -3,6 +3,12 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import * as componentStyles from './component-styles';
 
+const themeColors = {
+  ...defaultTheme.colors,
+  primary: 'tan',
+  onPrimary: '#121'
+};
+
 /**
  * Add global styles here. This is mainly used for styling general HTML elements.
  */
@@ -14,6 +20,13 @@ const GlobalStyles = createGlobalStyle`
     :hover {
       text-decoration: none;
     }
+  }
+
+  code {
+    background-color: ${themeColors.darken};
+    border-radius: ${defaultTheme.radii.sm};
+    color: ${themeColors.onDarken};
+    padding: .1em .2em;
   }
 `;
 
@@ -38,11 +51,7 @@ const globalStyles = () => (
 );
 
 export const theme = createTheme({
-  colors: {
-    ...defaultTheme.colors,
-    primary: 'tan',
-    onPrimary: '#121'
-  },
+  colors: themeColors,
   components: {
     Button: {
       baseStyle: componentStyles.baseButtonStyles,
