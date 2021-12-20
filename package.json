@@ -29,7 +29,7 @@
     "node": "16.x"
   },
   "scripts": {
-    "build": "next build",
+    "build": "next build && next export",
     "dev": "next dev",
     "format-check": "amper-scripts format-check .",
     "format": "amper-scripts format-write .",
