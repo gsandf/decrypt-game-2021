@@ -4,6 +4,7 @@ import {
   Button,
   Container,
   Flex,
+  Stack,
   Text,
   VStack
 } from '@gsandf/ui';
@@ -24,8 +25,8 @@ export default function Home(): JSX.Element {
           <Box $height={12} />
           <Button
             as="a"
-            href="/favicon.ico"
-            download="file.ico"
+            href="/immawinner.txt.enc"
+            download="immawinner.txt.enc"
             variant="control"
           >
             download file
@@ -33,7 +34,27 @@ export default function Home(): JSX.Element {
         </VStack>
       </Flex>
 
-      <Container $maxWidth={800} $px={2} $py={12}>
+      <Container $maxWidth={800} $px={2} $pt={12} $pb={6}>
+        <Stack>
+          <Text as="h2">Instructions</Text>
+          <Text as="p">
+            <ul>
+              <li>download the encrypted file</li>
+              <li>first to follow directions in file is the winner</li>
+              <li>the password is all lowercase with no spaces</li>
+              <li>
+                the file can be decrypted using the command:{' '}
+                <code style={{ display: 'block' }}>
+                  openssl enc -d -base64 -blowfish &lt;
+                  ~/Downloads/immawinner.txt.enc
+                </code>
+              </li>
+            </ul>
+          </Text>
+        </Stack>
+      </Container>
+
+      <Container $maxWidth={800} $px={2} $py={6}>
         <BasicGrid columns={1} spacing={4}>
           <Card>
             <Text>
