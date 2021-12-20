@@ -19,7 +19,8 @@
       "lib/*": ["src/lib/*"],
       "templates/*": ["src/templates/*"],
       "theme/*": ["src/theme/*"]
-    }
+    },
+    "incremental": true
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.js"],
   "exclude": ["node_modules"]
