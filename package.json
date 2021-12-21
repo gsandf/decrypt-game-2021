@@ -28,6 +28,9 @@
   "engines": {
     "node": "16.x"
   },
+  "resolutions": {
+    "@types/react": "17.0.37"
+  },
   "scripts": {
     "build": "next build && next export",
     "dev": "next dev",

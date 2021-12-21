@@ -15,7 +15,7 @@ function Basic({
   metaDescription,
   socialMediaImage,
   title
-}: BasicTemplateProps): JSX.Element {
+}: BasicTemplateProps) {
   const metaKeywords = Array.isArray(keywords) ? keywords.join(',') : '';
 
   return (

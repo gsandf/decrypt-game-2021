@@ -1,5 +1,6 @@
 import { omit } from '@blakek/deep';
 import { Stack, Text, useLocalStorage } from '@gsandf/ui';
+import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
 const completedStyle = css`
@@ -32,6 +33,14 @@ export function Steps() {
     Record<string, boolean>
   >('decryptCompletedSteps', {});
 
+  // Rendering immediately causes a difference between the server and client.
+  // This workaround helps avoid errors in the first refresh.
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    setShouldRender(true);
+  }, []);
+
   function toggleStep(stepId: string) {
     return () =>
       setCompletedSteps(previousCompletedSteps => {
@@ -47,9 +56,13 @@ export function Steps() {
   }
 
   const cardProps = (stepId: string) => ({
-    completed: completedSteps[stepId] === true,
+    completed: completedSteps[stepId],
     onClick: toggleStep(stepId)
   });
+
+  if (!shouldRender) {
+    return null;
+  }
 
   return (
     <>
@@ -63,7 +76,7 @@ export function Steps() {
 
       <Card {...cardProps('b')}>
         <Text>
-          Use the A. O. Smith at Lowe’s Product Selector Tool.{'\n'}Use the
+          Use the A. O. Smith at Lowe’s Product Selector Tool.{'\n'}Use the
           first option for every question.{'\n'}Is a tankless water heater
           suggested?
           {'\n'}
@@ -118,7 +131,7 @@ export function Steps() {
       <Card {...cardProps('i')}>
         <Text>
           Find the IP address for the Calplant (EurekaMDF) investors’ server.
-          {'\n'}What's the last octet of the IP address?{'\n'}What ASCII
+          {'\n'}What’s the last octet of the IP address?{'\n'}What ASCII
           character does that number represent?
         </Text>
       </Card>
